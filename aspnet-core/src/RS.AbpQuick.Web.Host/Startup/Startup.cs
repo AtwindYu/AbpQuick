@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Castle.Facilities.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using Abp.AspNetCore;
-using Abp.Castle.Logging.Log4Net;
+using Abp.Castle.Logging.NLog;
 using Abp.Extensions;
 using RS.AbpQuick.Authentication.JwtBearer;
 using RS.AbpQuick.Configuration;
@@ -91,7 +91,7 @@ namespace RS.AbpQuick.Web.Host.Startup
             return services.AddAbp<AbpQuickWebHostModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                    f => f.UseAbpNLog().WithConfig("nlog.config")
                 )
             );
         }

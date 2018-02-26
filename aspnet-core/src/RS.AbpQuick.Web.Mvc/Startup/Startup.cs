@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Castle.Facilities.Logging;
 using Abp.AspNetCore;
-using Abp.Castle.Logging.Log4Net;
+using Abp.Castle.Logging.NLog;
 using RS.AbpQuick.Authentication.JwtBearer;
 using RS.AbpQuick.Configuration;
 using RS.AbpQuick.Identity;
@@ -52,7 +52,7 @@ namespace RS.AbpQuick.Web.Startup
             return services.AddAbp<AbpQuickWebMvcModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                    f => f.UseAbpNLog().WithConfig("nlog.config")
                 )
             );
         }

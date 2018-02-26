@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.Facilities.Logging;
 using Abp;
-using Abp.Castle.Logging.Log4Net;
+using Abp.Castle.Logging.NLog;
 using Abp.Collections.Extensions;
 using Abp.Dependency;
 
@@ -19,7 +19,7 @@ namespace RS.AbpQuick.Migrator
             {
                 bootstrapper.IocManager.IocContainer
                     .AddFacility<LoggingFacility>(
-                        f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                        f => f.UseAbpNLog().WithConfig("nlog.config")
                     );
 
                 bootstrapper.Initialize();
