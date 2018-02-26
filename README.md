@@ -1,4 +1,4 @@
-# ABP项目学习与研究
+# ABP项目学习与研究的快速实践
 
 ##  下载与安装
  1. 从模板开始，不必完全从头构建。[Start with ASP.NET Boilerplate using free or premium startup templates.](https://aspnetboilerplate.com/Templates)                
