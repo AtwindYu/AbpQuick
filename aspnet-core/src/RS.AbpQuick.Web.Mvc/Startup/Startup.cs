@@ -27,8 +27,11 @@ namespace RS.AbpQuick.Web.Startup
     {
         private readonly IConfigurationRoot _appConfiguration;
 
+        private readonly IHostingEnvironment _environment;
+
         public Startup(IHostingEnvironment env)
         {
+            _environment = env;
             _appConfiguration = env.GetAppConfiguration();
         }
 
@@ -52,7 +55,7 @@ namespace RS.AbpQuick.Web.Startup
             return services.AddAbp<AbpQuickWebMvcModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpNLog().WithConfig("nlog.config")
+                    f => f.UseAbpNLog().WithConfig("config\\nlog.config")
                 )
             );
         }

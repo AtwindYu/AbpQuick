@@ -19,7 +19,7 @@ namespace RS.AbpQuick.Migrator
             {
                 bootstrapper.IocManager.IocContainer
                     .AddFacility<LoggingFacility>(
-                        f => f.UseAbpNLog().WithConfig("nlog.config")
+                        f => f.UseAbpNLog().WithConfig("config\\nlog.config")
                     );
 
                 bootstrapper.Initialize();

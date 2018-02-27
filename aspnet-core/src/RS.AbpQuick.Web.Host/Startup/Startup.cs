@@ -91,7 +91,7 @@ namespace RS.AbpQuick.Web.Host.Startup
             return services.AddAbp<AbpQuickWebHostModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpNLog().WithConfig("nlog.config")
+                    f => f.UseAbpNLog().WithConfig("config\\nlog.config")
                 )
             );
         }
