@@ -23,6 +23,7 @@
     <ProjectReference Include="..\RS.AbpQuick.EntityFrameworkCore\RS.AbpQuick.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Abp.RedisCache" Version="3.4.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.0.1" />

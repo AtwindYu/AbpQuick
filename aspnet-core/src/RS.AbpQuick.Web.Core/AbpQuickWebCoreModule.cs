@@ -7,6 +7,7 @@ using Abp.AspNetCore;
 using Abp.AspNetCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using Abp.Runtime.Caching.Redis;
 using Abp.Zero.Configuration;
 using RS.AbpQuick.Authentication.JwtBearer;
 using RS.AbpQuick.Configuration;
@@ -23,11 +24,12 @@ namespace RS.AbpQuick
     [DependsOn(
          typeof(AbpQuickApplicationModule),
          typeof(AbpQuickEntityFrameworkModule),
+        typeof(AbpRedisCacheModule),
          typeof(AbpAspNetCoreModule)
 #if FEATURE_SIGNALR 
         ,typeof(AbpWebSignalRModule)
 #elif FEATURE_SIGNALR_ASPNETCORE
-        ,typeof(AbpAspNetCoreSignalRModule)
+        , typeof(AbpAspNetCoreSignalRModule)
 #endif
      )]
     public class AbpQuickWebCoreModule : AbpModule
@@ -56,6 +58,15 @@ namespace RS.AbpQuick
                  );
 
             ConfigureTokenAuth();
+
+
+            #region 内存缓存替换为Redis，放于Web.Core中，后面的API及MVC都要配置Redis连接来使用Redis缓存
+
+            //Redis缓存
+            Configuration.Caching.UseRedis();
+
+            #endregion
+
         }
 
         private void ConfigureTokenAuth()
