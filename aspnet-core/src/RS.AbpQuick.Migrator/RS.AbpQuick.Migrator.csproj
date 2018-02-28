@@ -10,7 +10,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="nlog.config" />
+    <None Remove="config\nlog.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config\nlog.config">

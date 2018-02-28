@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    
+    <RootNamespace>RS.School</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="config\nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="config\nlog.config">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp.Castle.NLog" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RS.School.Domain\RS.School.Domain.csproj" />
+    <ProjectReference Include="..\RS.School.EntityFrameworkCore\RS.School.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>
